@@ -1,0 +1,22 @@
+for the episode and season separation in the features and by episode.
+=ARRAYFORMULA(IF(A1:A="", "", MID(A1:A, 2, 2)))
+
+=ARRAYFORMULA(IF(A1:A="", "", MID(A1:A, 5, 2)))
+
+
+This removes the "" and """ 
+=ARRAYFORMULA(IF(A1:A="", "", PROPER(SUBSTITUTE(A1:A, """", ""))))
+
+
+This is from the episodes featuring. I wanted title, date and feature in 3 columns.
+=ARRAYFORMULA(IF(A1:A="", "", IFERROR(REGEXEXTRACT(A1:A, ".*\(([^)]+)\)\s*$"), "")))
+
+=ARRAYFORMULA(IF(A1:A="", "", IFERROR(REGEXEXTRACT(A1:A, "^\s*""?.+?""? \([^)]+\)\s*(.+)$"), "")))
+
+
+This removes any " ; ' ()
+=ARRAYFORMULA(IF(A1:A="", "", REGEXEXTRACT(A1:A, "^""?(.+?)""? \(")))
+
+
+I would basically copy and paste the column of data i wanted to work on and paste it into a blank sheet. Then run the formula's. 
+Once that was done, I would copy and paste value only back into the main sheet.
