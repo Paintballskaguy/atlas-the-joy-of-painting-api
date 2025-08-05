@@ -1,27 +1,96 @@
+-- episodes table
 CREATE TABLE episodes (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    broadcast_date DATE NOT NULL
+    id INTEGER PRIMARY KEY,
+    painting_index INTEGER,
+    img_src TEXT,
+    painting_title TEXT NOT NULL,
+    season INTEGER,
+    episode INTEGER,
+    num_colors INTEGER,
+    youtube_src TEXT,
+    colors TEXT,
+    color_hex TEXT,
+    tags TEXT
 );
 
-CREATE TABLE colors (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(50) UNIQUE NOT NULL
+-- episode_airdates table
+CREATE TABLE episode_airdates (
+    painting_title TEXT PRIMARY KEY,
+    air_date DATE NOT NULL,
+    special_guest TEXT
 );
 
-CREATE TABLE subjects (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL
-);
-
-CREATE TABLE episode_colors (
-    episode_id INTEGER REFERENCES episodes(id),
-    color_id INTEGER REFERENCES colors(id),
-    PRIMARY KEY (episode_id, color_id)
-);
-
-CREATE TABLE episode_subjects (
-    episode_id INTEGER REFERENCES episodes(id),
-    subject_id INTEGER REFERENCES subjects(id),
-    PRIMARY KEY (episode_id, subject_id)
+-- episode_details table
+CREATE TABLE episode_details (
+    episode_id INTEGER PRIMARY KEY REFERENCES episodes(id),
+    season INTEGER,
+    episode INTEGER,
+    title TEXT,
+    apple_frame BOOLEAN,
+    aurora_borealis BOOLEAN,
+    barn BOOLEAN,
+    beach BOOLEAN,
+    boat BOOLEAN,
+    bridge BOOLEAN,
+    building BOOLEAN,
+    bushes BOOLEAN,
+    cabin BOOLEAN,
+    cactus BOOLEAN,
+    circle_frame BOOLEAN,
+    cirrus BOOLEAN,
+    cliff BOOLEAN,
+    clouds BOOLEAN,
+    conifer BOOLEAN,
+    cumulus BOOLEAN,
+    deciduous BOOLEAN,
+    diane_andre BOOLEAN,
+    dock BOOLEAN,
+    double_oval_frame BOOLEAN,
+    farm BOOLEAN,
+    fence BOOLEAN,
+    fire BOOLEAN,
+    florida_frame BOOLEAN,
+    flowers BOOLEAN,
+    fog BOOLEAN,
+    framed BOOLEAN,
+    grass BOOLEAN,
+    guest BOOLEAN,
+    half_circle_frame BOOLEAN,
+    half_oval_frame BOOLEAN,
+    hills BOOLEAN,
+    lake BOOLEAN,
+    lakes BOOLEAN,
+    lighthouse BOOLEAN,
+    mill BOOLEAN,
+    moon BOOLEAN,
+    mountain BOOLEAN,
+    mountains BOOLEAN,
+    night BOOLEAN,
+    ocean BOOLEAN,
+    oval_frame BOOLEAN,
+    palm_trees BOOLEAN,
+    path BOOLEAN,
+    person BOOLEAN,
+    portrait BOOLEAN,
+    rectangle_3d_frame BOOLEAN,
+    rectangular_frame BOOLEAN,
+    river BOOLEAN,
+    rocks BOOLEAN,
+    seashell_frame BOOLEAN,
+    snow BOOLEAN,
+    snowy_mountain BOOLEAN,
+    split_frame BOOLEAN,
+    steve_ross BOOLEAN,
+    structure BOOLEAN,
+    sun BOOLEAN,
+    tomb_frame BOOLEAN,
+    tree BOOLEAN,
+    trees BOOLEAN,
+    triple_frame BOOLEAN,
+    waterfall BOOLEAN,
+    waves BOOLEAN,
+    windmill BOOLEAN,
+    window_frame BOOLEAN,
+    winter BOOLEAN,
+    wood_framed BOOLEAN
 );
