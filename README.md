@@ -21,21 +21,21 @@ The project began with three distinct datasets collected by different individual
 ### Data Integration Journey
 The most intricate part of the project was designing an ETL pipeline that could:
 
-Handle CSV files with different schemas and formats
+- Handle CSV files with different schemas and formats
 
-Resolve data inconsistencies and duplicates
+- Resolve data inconsistencies and duplicates
 
-Establish proper relational connections between datasets
+- Establish proper relational connections between datasets
 
-Transform date formats and boolean values consistently
+- Transform date formats and boolean values consistently
 
 I implemented a multi-phase approach:
 
-Database Design: Created a normalized schema with proper relationships
+- Database Design: Created a normalized schema with proper relationships
 
-ETL Development: Built custom Python scripts with SQLAlchemy for data loading
+- ETL Development: Built custom Python scripts with SQLAlchemy for data loading
 
-API Construction: Developed a Flask-based API with complex filtering capabilities
+- API Construction: Developed a Flask-based API with complex filtering capabilities
 
 ### Technical Breakthroughs
 The most satisfying moment came when solving the complex filtering requirements. Implementing the "match any" vs "match all" logic required careful query construction to handle multiple filter combinations while maintaining performance across 403 episodes with numerous attributes.
@@ -46,37 +46,37 @@ Multi-source Data Integration: Combined three different dataset formats into a u
 
 ### Advanced Filtering System:
 
-Filter by broadcast month (1-12)
+- Filter by broadcast month (1-12)
 
-Filter by subject matter (65+ categories including mountains, lakes, cabins, etc.)
+- Filter by subject matter (65+ categories including mountains, lakes, cabins, etc.)
 
-Filter by color palette (18 different paint colors)
+- Filter by color palette (18 different paint colors)
 
-Combined filters with "match all" or "match any" logic
+- Combined filters with "match all" or "match any" logic
 
-RESTful API: Clean JSON responses with episode metadata
+- RESTful API: Clean JSON responses with episode metadata
 
-Data Validation: Comprehensive error handling and data type conversion
+- Data Validation: Comprehensive error handling and data type conversion
 
-Performance Optimization: Efficient database queries with proper indexing
+- Performance Optimization: Efficient database queries with proper indexing
 
 ### API Endpoints
-GET /episodes/filter?month=1&subject=mountain&color=blue&match=all
+- GET /episodes/filter?month=1&subject=mountain&color=blue&match=all
 
 Returns filtered episodes in JSON format with complete metadata
 
 ### To Be Implemented
-User authentication and personalized episode collections
+- User authentication and personalized episode collections
 
-Advanced search with partial string matching
+- Advanced search with partial string matching
 
-Pagination for large result sets
+- Pagination for large result sets
 
-Rate limiting and API usage analytics
+- Rate limiting and API usage analytics
 
-Caching layer for improved performance
+- Caching layer for improved performance
 
-Web interface for visual exploration of episodes
+- Web interface for visual exploration of episodes
 
 ### Technical Challenges
 Data Heterogeneity
@@ -93,24 +93,24 @@ Integrating these required careful schema design and complex ETL logic.
 ### Database Design Complexity
 Creating a schema that maintained relationships while enabling efficient filtering was challenging. The final design uses:
 
-A main episodes table with core metadata
+- A main episodes table with core metadata
 
-An episode_details table with boolean subject columns
+- An episode_details table with boolean subject columns
 
-An episode_airdates table with broadcast information
+- An episode_airdates table with broadcast information
 
-Filter Implementation
+### Filter Implementation
 The most complex technical challenge was implementing the filtering system that allows:
 
-Multiple values for each filter type (e.g., multiple colors)
+- Multiple values for each filter type (e.g., multiple colors)
 
-Different matching strategies ("all" vs "any")
+- Different matching strategies ("all" vs "any")
 
-Efficient database queries that join multiple tables
+- Efficient database queries that join multiple tables
 
 The solution uses SQLAlchemy's expression language to dynamically construct queries based on filter parameters.
 
-Date Format Inconsistencies
+### Date Format Inconsistencies
 The original data stored dates in different formats ("January 11, 1983" vs "1983-01-11"). The ETL process needed to detect and normalize these formats before database insertion.
 
 ## Technical Stack
