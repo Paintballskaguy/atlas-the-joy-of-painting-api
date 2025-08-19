@@ -9,10 +9,6 @@ Systems Architect → Full-Stack Engineer
 
 With 6+ years building HIPAA-compliant infrastructure in healthcare/energy sectors, I now craft developer tools that blend system-level efficiency with intuitive UX. Passionate about creating terminal experiences that reduce cognitive load through thoughtful design.
 
-https://img.shields.io/badge/LinkedIn-John_Wilson-blue?style=flat&logo=linkedin
-https://img.shields.io/badge/Twitter-@johnwilson-dev-blue?style=flat&logo=twitter
-https://img.shields.io/badge/Portfolio-John_Wilson-green?style=flat&logo=react
-
 ## Project Description
 The Joy of Painting API provides a comprehensive database and query interface for all 403 episodes of Bob Ross's iconic painting instructional series. This API allows users to filter episodes based on multiple criteria including broadcast month, subject matter, and color palette, with flexible matching options to create personalized viewing experiences.
 
